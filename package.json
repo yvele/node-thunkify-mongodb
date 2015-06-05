@@ -1,0 +1,34 @@
+{
+  "name": "thunkify-mongodb",
+  "version": "0.0.1",
+  "description": "Wrapper on MongoDB native driver to provide thunk methods",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": "yvele/node-thunkify-mongodb",
+  "keywords": [
+    "mongodb",
+    "thunk",
+    "thunkify",
+    "co",
+    "generator",
+    "generators",
+    "promise",
+    "yield",
+    "wrapper",
+    "wrap"
+  ],
+  "license": "MIT",
+  "author": "Yves Merlicco",
+  "dependencies": {
+    "thunkify-object": "^0.1.0"
+  },
+  "devDependencies": {
+    "co-mocha": "^1.1.0",
+    "istanbul": "*",
+    "mocha": "*",
+    "mongodb": "^2.0.33",
+    "should": "*"
+  }
+}
