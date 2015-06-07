@@ -1,4 +1,5 @@
 var assert = require('assert');
+var EventEmitter = require('events').EventEmitter;
 var Cursor = require('../lib').Cursor;
 
 
@@ -63,6 +64,50 @@ describe('Cursor', function() {
       var cursor = new Cursor(mock)[method]();
       assert.strictEqual(cursor, null);
     });
+  });
+
+  it('on should work', function* () {
+
+    var cursor = new Cursor(new EventEmitter());
+
+    setTimeout(function() {
+      cursor.emit('test');
+    }, 5);
+
+    yield cursor.on('test');
+  });
+
+  it('on should work with a callback', function(done) {
+
+    var cursor = new Cursor(new EventEmitter());
+
+    setTimeout(function() {
+      cursor.emit('test');
+    }, 5);
+
+    cursor.on('test', done);
+  });
+
+  it('once should work', function* () {
+
+    var cursor = new Cursor(new EventEmitter());
+
+    setTimeout(function() {
+      cursor.emit('test');
+    }, 5);
+
+    yield cursor.once('test');
+  });
+
+  it('once should work with a callback', function(done) {
+
+    var cursor = new Cursor(new EventEmitter());
+
+    setTimeout(function() {
+      cursor.emit('test');
+    }, 5);
+
+    cursor.once('test', done);
   });
 
 });

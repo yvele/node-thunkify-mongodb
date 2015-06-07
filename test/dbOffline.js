@@ -1,4 +1,5 @@
 var assert = require('assert');
+var EventEmitter = require('events').EventEmitter;
 var Db = require('../lib').Db;
 var Collection = require('../lib').Collection;
 
@@ -46,6 +47,57 @@ describe('Collection', function() {
 
     assert(db);
     assert(db instanceof Db);
+  });
+
+
+  it('on should work', function* () {
+
+    var db = new Db(new EventEmitter());
+
+    setTimeout(function() {
+      db.emit('test');
+    }, 5);
+
+    yield db.on('test');
+  });
+
+  it('on should work with a callback', function(done) {
+
+    var db = new Db(new EventEmitter());
+
+    setTimeout(function() {
+      db.emit('test');
+    }, 5);
+
+    db.on('test', done);
+  });
+
+  it('once with fullsetup event should work', function* () {
+
+    var db = new Db(new EventEmitter());
+
+    setTimeout(function() {
+      db.emit('fullsetup', {});
+    }, 5);
+
+    var db = yield db.on('fullsetup');
+    assert(db);
+    assert(db instanceof Db);
+  });
+
+  it('once with fullsetup event should work with a callback', function(done) {
+
+    var db = new Db(new EventEmitter());
+
+    setTimeout(function() {
+      db.emit('fullsetup', {});
+    }, 5);
+
+    db.on('fullsetup', function(db) {
+      assert(db);
+      assert(db instanceof Db);
+      done();
+    });
   });
 
 });
