@@ -2,9 +2,10 @@ var assert = require('assert');
 var EventEmitter = require('events').EventEmitter;
 var Db = require('../lib').Db;
 var Collection = require('../lib').Collection;
+var Admin = require('../lib').Admin;
 
 
-describe('Collection', function() {
+describe('Db', function() {
 
   it('collectionSync should return null', function() {
     var col = new Db({
@@ -98,6 +99,31 @@ describe('Collection', function() {
       assert(db instanceof Db);
       done();
     });
+  });
+
+  it('admin should return an Admin instance', function() {
+
+    var db = new Db({
+      admin: function () {
+        return {};
+      }
+    });
+
+    var admin = db.admin();
+    assert(admin);
+    assert(admin instanceof Admin);
+  });
+
+  it('admin should return null', function() {
+
+    var db = new Db({
+      admin: function () {
+        return null;
+      }
+    });
+
+    var admin = db.admin();
+    assert.equal(admin, null);
   });
 
 });
