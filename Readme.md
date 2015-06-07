@@ -58,7 +58,7 @@ db.on('close', function() {
 
 ## Unsupported yet (todo)
 
-Aggregation, Admin, CommandCursor, GridStore, Mongos, etc. coming soon. Feel free to PR.
+BulkOp, AggregationCursor, GridStore, Mongos, etc. coming soon. Feel free to PR.
 
 ## Running tests
 

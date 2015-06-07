@@ -3,6 +3,7 @@ var EventEmitter = require('events').EventEmitter;
 var Db = require('../lib').Db;
 var Collection = require('../lib').Collection;
 var Admin = require('../lib').Admin;
+var CommandCursor = require('../lib').CommandCursor;
 
 
 describe('Db', function() {
@@ -102,28 +103,37 @@ describe('Db', function() {
   });
 
   it('admin should return an Admin instance', function() {
+    var admin = new Db({
+      admin: function () { return {} }
+    }).admin();
 
-    var db = new Db({
-      admin: function () {
-        return {};
-      }
-    });
-
-    var admin = db.admin();
     assert(admin);
     assert(admin instanceof Admin);
   });
 
   it('admin should return null', function() {
+    var admin = new Db({
+      admin: function () { return null }
+    }).admin();
 
-    var db = new Db({
-      admin: function () {
-        return null;
-      }
-    });
-
-    var admin = db.admin();
     assert.equal(admin, null);
+  });
+
+  it('listCollections should return a CommandCursor', function() {
+    var cursor = new Db({
+      listCollections: function() { return {} }
+    }).listCollections();
+
+    assert(cursor);
+    assert(cursor instanceof CommandCursor);
+  });
+
+  it('listCollections should return null', function() {
+    var cursor = new Db({
+      listCollections: function() { return null }
+    }).listCollections();
+
+    assert.strictEqual(cursor, null);
   });
 
 });

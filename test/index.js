@@ -49,4 +49,5 @@ describe('Offline Tests', function() {
   require('./dbOffline');
   require('./collectionOffline');
   require('./cursorOffline');
+  require('./commandCursorOffline');
 });

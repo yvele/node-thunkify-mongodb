@@ -1,6 +1,7 @@
 var assert = require('assert');
 var Collection = require('../lib').Collection;
 var Cursor = require('../lib').Cursor;
+var CommandCursor = require('../lib').CommandCursor;
 
 
 describe('Collection', function() {
@@ -93,6 +94,23 @@ describe('Collection', function() {
     }).parallelCollectionScan();
 
     assert.strictEqual(cursors, null);
+  });
+
+  it('listIndexes should return a CommandCursor', function() {
+    var cursor = new Collection({
+      listIndexes: function() { return {} }
+    }).listIndexes();
+
+    assert(cursor);
+    assert(cursor instanceof CommandCursor);
+  });
+
+  it('listIndexes should return null', function() {
+    var cursor = new Collection({
+      listIndexes: function() { return null }
+    }).listIndexes();
+
+    assert.strictEqual(cursor, null);
   });
 
 });
