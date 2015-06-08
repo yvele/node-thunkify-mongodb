@@ -8,13 +8,28 @@ Give [MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) 2.0 
 
 Wrapper on [MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) to provide thunk methods, useful for generator-based flow control such as [co](https://github.com/visionmedia/co), [Koa](http://koajs.com/), etc.
 
+
+## Table of content
+
+- [Installation](#installation)
+- [Examples](#examples)
+  - [Basic](#basic)
+  - [Events](#events)
+  - [Bulk Operations](#bulk-operations)
+- [Supported MongoDB versions](#supported-mongodb-versions)
+- [Todo](#todo)
+- [Under the hood](#under-the-hood)
+- [Running tests](#running-tests)
+- [License](#license)
+
+
 ## Installation
 
 ```
 $ npm install thunkify-mongodb --save
 ```
 
-## Example
+## Examples
 
 ### Basic
 
@@ -82,13 +97,20 @@ function* doBulk(url) {
 ```
 
 
-## Supported MongoDB native driver versions
+## Supported MongoDB versions
 
-* All 2.X.X versions of MongoDB driver are supported.
+* All 2.X.X versions of MongoDB Native Driver are supported.
 
-## Unsupported yet (todo)
+
+## Todo
 
 AggregationCursor, GridStore, Mongos, etc. coming soon. Feel free to PR.
+
+
+## Under the hood
+
+[thunkify-object](https://github.com/yvele/node-thunkify-object) is used as a thunk wrapper engine.
+
 
 ## Running tests
 
