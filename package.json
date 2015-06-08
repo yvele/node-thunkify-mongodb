@@ -1,6 +1,6 @@
 {
   "name": "thunkify-mongodb",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Thunkify MongoDB native driver, use it with sweet generator aftertaste",
   "main": "lib/index.js",
   "scripts": {
