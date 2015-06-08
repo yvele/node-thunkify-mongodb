@@ -4,7 +4,7 @@
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
-Give [MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) a sweet generator aftertaste :lollipop:
+Give [MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) 2.0 a sweet generator aftertaste :lollipop:
 
 Wrapper on [MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) to provide thunk methods, useful for generator-based flow control such as [co](https://github.com/visionmedia/co), [Koa](http://koajs.com/), etc.
 
