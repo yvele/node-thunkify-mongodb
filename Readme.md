@@ -88,7 +88,7 @@ function* doBulk(url) {
 
 ## Unsupported yet (todo)
 
-BulkOp, AggregationCursor, GridStore, Mongos, etc. coming soon. Feel free to PR.
+AggregationCursor, GridStore, Mongos, etc. coming soon. Feel free to PR.
 
 ## Running tests
 
