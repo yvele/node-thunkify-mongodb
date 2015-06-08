@@ -4,9 +4,9 @@
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
-[MongoDB native driver](mongodb-native) with sweet generator aftertaste :lollipop:
+MongoDB native driver with sweet generator aftertaste :lollipop:
 
-Wrapper on [MongoDB native driver](mongodb-native) to provide thunk methods, useful for generator-based flow control such as [co](co), [Koa](koa), etc.
+Wrapper on [MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) to provide thunk methods, useful for generator-based flow control such as [co](https://github.com/visionmedia/co), [Koa](http://koajs.com/), etc.
 
 ## Installation
 
@@ -36,7 +36,7 @@ function* insertSomething(url) {
 
 ### Events
 
-All [EventEmitter methods](event-emitter) are wrapped.
+All [EventEmitter methods](https://iojs.org/api/events.html#events_class_events_eventemitter) are wrapped.
 
 You can use `on` and `once` methods as generators:
 
@@ -77,11 +77,6 @@ $ make test-cov
 ## License
 
 Thunkify-mongodb is freely distributable under the terms of the [MIT license](LICENSE).
-
-[mongodb-native]: http://mongodb.github.io/node-mongodb-native/
-[co]: https://github.com/visionmedia/co
-[koa]: http://koajs.com/
-[event-emitter]: https://iojs.org/api/events.html#events_class_events_eventemitter
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE
