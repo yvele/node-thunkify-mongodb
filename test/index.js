@@ -50,4 +50,6 @@ describe('Offline Tests', function() {
   require('./collectionOffline');
   require('./cursorOffline');
   require('./commandCursorOffline');
+  require('./orderedBulkOperationOffline');
+  require('./unorderedBulkOperationOffline');
 });

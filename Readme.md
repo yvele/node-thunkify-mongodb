@@ -4,7 +4,7 @@
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
-[MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) with sweet generator aftertaste :lollipop:
+Give [MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) a sweet generator aftertaste :lollipop:
 
 Wrapper on [MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) to provide thunk methods, useful for generator-based flow control such as [co](https://github.com/visionmedia/co), [Koa](http://koajs.com/), etc.
 
@@ -51,6 +51,36 @@ db.on('close', function() {
 
 });
 ```
+
+### Bulk Operations
+
+```js
+var MongoClient = require('thunkify-mongodb').MongoClient;
+var mongodb = require('mongodb');
+
+function* doBulk(url) {
+  var mongoClient = new MongoClient(new mongodb.MongoClient());
+
+  var db = yield mongoClient.connect(url);
+
+  var collection = yield db.collection('Documents');
+
+  var batch = collection.initializeOrderedBulkOp();
+  batch.insert({a:1});
+  batch.find({a:1}).updateOne({$set: {b:1}});
+  batch.find({a:2}).upsert().updateOne({$set: {b:2}});
+  batch.insert({a:3});
+  batch.find({a:3}).delete({a:3});
+
+  // Execute the operations
+  var result = yield batch.execute();
+
+  yield db.close();
+
+  return result;
+}
+```
+
 
 ## Supported MongoDB native driver versions
 

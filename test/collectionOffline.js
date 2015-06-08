@@ -2,6 +2,8 @@ var assert = require('assert');
 var Collection = require('../lib').Collection;
 var Cursor = require('../lib').Cursor;
 var CommandCursor = require('../lib').CommandCursor;
+var OrderedBulkOperation = require('../lib').OrderedBulkOperation;
+var UnorderedBulkOperation = require('../lib').UnorderedBulkOperation;
 
 
 describe('Collection', function() {
@@ -111,6 +113,40 @@ describe('Collection', function() {
     }).listIndexes();
 
     assert.strictEqual(cursor, null);
+  });
+
+  it('initializeOrderedBulkOp should return an OrderedBulkOperation', function () {
+    var res = new Collection({
+      initializeOrderedBulkOp: function() { return {} }
+    }).initializeOrderedBulkOp();
+
+    assert(res);
+    assert(res instanceof OrderedBulkOperation);
+  });
+
+  it('initializeOrderedBulkOp should return null', function () {
+    var res = new Collection({
+      initializeOrderedBulkOp: function() { return null }
+    }).initializeOrderedBulkOp();
+
+    assert.strictEqual(res, null);
+  });
+
+  it('initializeUnorderedBulkOp should return an OrderedBulkOperation', function* () {
+    var res = new Collection({
+      initializeUnorderedBulkOp: function() { return {} }
+    }).initializeUnorderedBulkOp();
+
+    assert(res);
+    assert(res instanceof UnorderedBulkOperation);
+  });
+
+  it('initializeUnorderedBulkOp should return null', function* () {
+    var res = new Collection({
+      initializeUnorderedBulkOp: function() { return null }
+    }).initializeUnorderedBulkOp();
+
+    assert.strictEqual(res, null);
   });
 
 });
