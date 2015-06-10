@@ -1,27 +1,15 @@
-# thunkify-mongodb
 [![NPM version][npm-version-image]][npm-url]
 [![MIT License][license-image]][license-url]
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
+# thunkify-mongodb
+
+[Installation](#installation) | [Examples](#examples) | [Supported MongoDB versions](#supported-mongodb-versions) | [Roadmap](#roadmap) | [Under the hood](#under-the-hood) | [Running tests](#running-tests) | [License](#license)
+
 Give [MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) 2.0 a sweet generator aftertaste :lollipop:
 
 Wrapper on [MongoDB native driver](http://mongodb.github.io/node-mongodb-native/) to provide thunk methods, useful for generator-based flow control such as [co](https://github.com/visionmedia/co), [Koa](http://koajs.com/), etc.
-
-
-## Table of content
-
-- [Installation](#installation)
-- [Examples](#examples)
-  - [Basic](#basic)
-  - [Events](#events)
-  - [Bulk Operations](#bulk-operations)
-- [Supported MongoDB versions](#supported-mongodb-versions)
-- [Todo](#todo)
-- [Under the hood](#under-the-hood)
-- [Running tests](#running-tests)
-- [License](#license)
-
 
 ## Installation
 
@@ -30,6 +18,8 @@ $ npm install thunkify-mongodb --save
 ```
 
 ## Examples
+
+[Basic](#basic) | [Events](#events) | [Bulk Operations](#bulk-operations)
 
 ### Basic
 
@@ -102,7 +92,7 @@ function* doBulk(url) {
 * All 2.X.X versions of MongoDB Native Driver are supported.
 
 
-## Todo
+## Roadmap
 
 AggregationCursor, GridStore, Mongos, etc. coming soon. Feel free to PR.
 
