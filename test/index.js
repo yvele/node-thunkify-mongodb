@@ -52,4 +52,5 @@ describe('Offline Tests', function() {
   require('./commandCursorOffline');
   require('./orderedBulkOperationOffline');
   require('./unorderedBulkOperationOffline');
+  require('./gridStoreOffline');
 });
