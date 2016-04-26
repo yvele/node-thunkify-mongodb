@@ -26,11 +26,11 @@
     "thunkify-object": "^0.2.0"
   },
   "devDependencies": {
-    "eslint": "*",
     "co-mocha": "^1.1.0",
-    "istanbul": "*",
-    "mocha": "*",
+    "eslint": "^0.22.1",
+    "istanbul": "^0.3.14",
+    "mocha": "^2.2.5",
     "mongodb": "^2.0.33",
-    "should": "*"
+    "should": "^8.3.1"
   }
 }
