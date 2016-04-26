@@ -20,7 +20,7 @@ describe('Collection', function() {
     'dropAllIndexes', // Deprecated
     'dropIndex',
     'dropIndexes',
-    'ensureIndexe',
+    'ensureIndex',
     'findAndModify',
     'findAndRemove', // Deprecated
     'findOne',
